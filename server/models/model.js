@@ -11,7 +11,7 @@ const categories_model = new Schema({
 const transection_model = new Schema({
     name: { type: String, default: "Anonymous" },
     type: { type: String, default: "Investment" },
-    amount: { type: Number },
+    amount: { type: Number, default: 0 },
     date: { type: Date, default: Date.now }
 })
 
