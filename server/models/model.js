@@ -1,26 +1,26 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
+
 const Schema = mongoose.Schema;
 
-//categories => field => ['type', 'color']
+// categories => field => ['type', 'color']
 const categories_model = new Schema({
     type: { type: String, default: "Investment" },
-    color: { type: String, default: "#392b82" }
+    color: { type: String, default: '#FCBE44' }
 })
 
-//transection => fields => ['name', 'type', 'amount', 'date']
-const transection_model = new Schema({
+// transactions  => field => ['name', 'type', 'amount', 'date']
+const transaction_model = new Schema({
     name: { type: String, default: "Anonymous" },
     type: { type: String, default: "Investment" },
-    amount: { type: Number, default: 0 },
+    amount: { type: Number },
     date: { type: Date, default: Date.now }
 })
 
-const Categories = mongoose.model('categories', categories_model);
-const Transection = mongoose.model('transection', transection_model);
+const Categories = mongoose.model('categories', categories_model)
+const Transaction = mongoose.model('transaction', transaction_model);
 
-exports.default = Transection;
-
+exports.default = Transaction;
 module.exports = {
     Categories,
-    Transection
+    Transaction
 }
