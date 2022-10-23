@@ -1,20 +1,20 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const baseURI = 'http://localhost:8080';
+const baseURI = 'http://localhost:3002';
 
 export const apiSlice = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: baseURI }),
     endpoints: builder => ({
         // get categories
         getCategories: builder.query({
-            // get: 'http://localhost:8080/api/categories'
+            // get: 'http://localhost:3002/api/categories'
             query: () => '/api/categories',
             providesTags: ['categories']
         }),
 
         // get labels
         getLabels: builder.query({
-            // get: 'http://localhost:8080/api/labels'
+            // get: 'http://localhost:3002/api/labels'
             query: () => '/api/labels',
             providesTags: ['transaction']
         }),
@@ -22,7 +22,7 @@ export const apiSlice = createApi({
         // add new Transaction
         addTransaction: builder.mutation({
             query: (initialTransaction) => ({
-                // post: 'http://localhost:8080/api/transaction'
+                // post: 'http://localhost:3002/api/transaction'
                 url: '/api/transaction',
                 method: "POST",
                 body: initialTransaction
@@ -33,7 +33,7 @@ export const apiSlice = createApi({
         // delete record
         deleteTransaction: builder.mutation({
             query: recordId => ({
-                // delete: 'http://localhost:8080/api/transaction'
+                // delete: 'http://localhost:3002/api/transaction'
                 url: '/api/transaction',
                 method: "DELETE",
                 body: recordId
